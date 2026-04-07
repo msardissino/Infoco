@@ -1,0 +1,76 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden; /* Cambiamos a hidden para evitar doble scrollbar */
+  padding: 4rem 1rem; /* El padding interno aloja la sombra del libro sin romper la caja */
+}
+
+.document {
+  display: flex;
+  justify-content: center;
+}
+
+.flipbook {
+  /* Realismo de tapa de libro y sombra ambiental */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), 
+              0 0 0 1px rgba(0, 0, 0, 0.05);
+  border-radius: 4px; /* Las hojas suelen estar milimetricamente redondeadas */
+  background-color: #faf9f6;
+}
+
+.pageItem {
+  background-color: #faf9f6; /* Color papel ahuesado, más natural que el blanco puro */
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.05); /* Borde sutil propio de la hoja cortada */
+}
+
+/* Efecto de sombra interior profunda para emular el encolado (lomo) del libro */
+.pageItem::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  z-index: 10;
+  pointer-events: none; /* Que no interrumpa el clic/drag */
+}
+
+/* Página Izquierda (Par) - El lomo está a su derecha */
+.pageItem:nth-child(even)::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.03) 40%, rgba(0,0,0,0) 100%);
+}
+
+/* Página Derecha (Impar) - El lomo está a su izquierda */
+.pageItem:nth-child(odd)::after {
+  left: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.03) 40%, rgba(0,0,0,0) 100%);
+}
+
+/* Portada dura sin tanto sombreado central */
+.pageItem[data-density="hard"]::after {
+  width: 25px;
+  background: linear-gradient(to right, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0) 100%);
+}
+
+.controls {
+  margin-top: 3rem;
+  color: var(--color-text-muted);
+  font-style: italic;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: rgba(255,255,255,0.7);
+  padding: 0.5rem 1.5rem;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+  font-size: 0.95rem;
+}
+
+.controls::before {
+  content: "📖";
+  font-style: normal;
+}

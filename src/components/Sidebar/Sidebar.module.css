@@ -1,0 +1,73 @@
+.sidebar {
+  width: 260px;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  box-shadow: var(--shadow-md);
+  z-index: 200;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo span {
+  color: var(--color-accent);
+}
+
+.nav {
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.navLink {
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  transition: all var(--transition);
+}
+
+.navLink:hover, .navLink[data-active="true"] {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-surface);
+}
+
+.navLink[data-active="true"] {
+  border-left: 4px solid var(--color-accent);
+  padding-left: calc(1rem - 4px);
+}
+
+.logout {
+  padding: 1.5rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logoutBtn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: left;
+  border-radius: var(--radius-sm);
+}
+
+.logoutBtn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-surface);
+}
