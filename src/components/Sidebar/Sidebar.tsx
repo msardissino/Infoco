@@ -32,9 +32,15 @@ export const Sidebar = () => {
       {isOpen && <div className={styles.overlay} onClick={() => setIsOpen(false)}></div>}
 
       <aside className={`${styles.sidebar} ${isOpen ? styles.isOpen : ""}`}>
-        <div className={styles.logo}>
-          Infoco<span>Dash</span>
-        </div>
+        <Link href="/" className={styles.logo} onClick={() => setIsOpen(false)}>
+          <img 
+            src="/assets/avatar.png" 
+            alt="Infoco" 
+            className={styles.avatar} 
+            onError={(e) => (e.currentTarget.style.display = 'none')} 
+          />
+          <span>Infoco<span>Dash</span></span>
+        </Link>
         
         <nav className={styles.nav}>
           {navItems.map((item) => {
