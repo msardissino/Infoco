@@ -1,7 +1,7 @@
 .hero {
   background-color: var(--color-primary);
   color: var(--color-surface);
-  padding: 5rem 1.5rem;
+  padding: 3rem 1rem;
   border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   text-align: center;
   position: relative;
@@ -11,13 +11,13 @@
 .hero::after {
   content: "";
   position: absolute;
-  top: -50%;
+  top: -20%;
   left: -10%;
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   background-color: var(--color-accent);
   border-radius: 50%;
-  filter: blur(100px);
+  filter: blur(80px);
   opacity: 0.3;
   z-index: 0;
 }
@@ -30,10 +30,10 @@
 }
 
 .title {
-  font-size: 3.5rem;
+  font-size: 2.25rem;
   font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
   letter-spacing: -0.02em;
 }
 
@@ -42,28 +42,55 @@
 }
 
 .subtitle {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   color: #ccd6f6;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .cta {
   background-color: var(--color-accent);
   color: var(--color-surface);
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
-  padding: 1rem 2rem;
+  padding: 0.85rem 1.75rem;
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-md);
   transition: transform var(--transition), box-shadow var(--transition), background-color var(--transition);
 }
 
-.cta:hover {
-  background-color: var(--color-accent-hover);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+/* Desktop Enhancements */
+@media (min-width: 768px) {
+  .hero {
+    padding: 6rem 1.5rem;
+  }
+
+  .hero::after {
+    width: 450px;
+    height: 450px;
+    top: -40%;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .cta {
+    font-size: 1.15rem;
+    padding: 1.1rem 2.5rem;
+  }
+
+  .cta:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
 }

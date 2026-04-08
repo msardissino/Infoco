@@ -11,6 +11,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Infoco - Centro de Día",
   description: "Revista digital institucional del Centro de Día Infoco.",
+  icons: {
+    icon: "/assets/favicon.ico",
+    apple: "/assets/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({

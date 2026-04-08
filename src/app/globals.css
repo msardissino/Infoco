@@ -23,7 +23,15 @@
   
   /* Transitions */
   --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  /* Breakpoints */
+  --breakpoint-mobile: 480px;
+  --breakpoint-tablet: 768px;
+  --breakpoint-laptop: 1024px;
 }
+
+/* Mobile-First Base styles are already applied by default. 
+   We will use media queries to enhance for desktop. */
 
 @media (prefers-color-scheme: dark) {
   :root {

@@ -16,7 +16,15 @@ export const TopBar = () => {
       <h1 className={styles.heading}>{title}</h1>
       <div className={styles.actions}>
         <span className={styles.userName}>Admin</span>
-        <div className={styles.avatar}>A</div>
+        <div className={styles.avatar}>
+          <img 
+            src="/assets/avatar.png" 
+            alt="Admin" 
+            className={styles.avatarImg} 
+            onError={(e) => (e.currentTarget.style.display = 'none')}
+          />
+          <span className={styles.avatarInitial}>A</span>
+        </div>
       </div>
     </header>
   );

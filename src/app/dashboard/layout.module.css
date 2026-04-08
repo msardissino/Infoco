@@ -1,5 +1,6 @@
 .layout {
   display: flex;
+  flex-direction: column; /* Mobile first: stack vertically (sidebar header + content) */
   min-height: 100vh;
   background-color: var(--color-background);
 }
@@ -11,6 +12,17 @@
 }
 
 .contentWrapper {
-  padding: 2rem;
+  padding: 1rem;
   flex: 1;
+}
+
+/* Desktop Layout */
+@media (min-width: 1024px) {
+  .layout {
+    flex-direction: row; /* Side by side on desktop */
+  }
+
+  .contentWrapper {
+    padding: 2.5rem;
+  }
 }
