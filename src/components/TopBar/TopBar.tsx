@@ -13,9 +13,6 @@ export const TopBar = () => {
 
   return (
     <header className={styles.topbar}>
-      <div className={styles.logoContainer}>
-        <img src="/assets/img/info-dash.svg" alt="Infoco" className={styles.mobileLogo} />
-      </div>
       <h1 className={styles.heading}>{title}</h1>
       <div className={styles.actions}>
         <span className={styles.userName}>Admin</span>

@@ -20,8 +20,8 @@ export const Sidebar = () => {
     <>
       {/* Mobile Header for Dashboard */}
       <div className={styles.mobileHeader}>
-        <div className={styles.mobileLogo}>
-          Infoco<span>Dash</span>
+        <div className={styles.mobileLogoContainer}>
+          <img src="/assets/img/info-dash.svg" alt="Infoco Dash" className={styles.mobileLogoImg} />
         </div>
         <button className={styles.toggleBtn} onClick={() => setIsOpen(!isOpen)} aria-label="Menu">
           {isOpen ? "✕" : "☰"}

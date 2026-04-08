@@ -38,13 +38,15 @@
   box-shadow: var(--shadow-sm);
 }
 
-.mobileLogo {
-  font-size: 1.25rem;
-  font-weight: 800;
+.mobileLogoContainer {
+  display: flex;
+  align-items: center;
 }
 
-.mobileLogo span {
-  color: var(--color-accent);
+.mobileLogoImg {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
 }
 
 .toggleBtn {
