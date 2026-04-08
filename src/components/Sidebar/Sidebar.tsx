@@ -34,10 +34,11 @@ export const Sidebar = () => {
       <aside className={`${styles.sidebar} ${isOpen ? styles.isOpen : ""}`}>
         <Link href="/" className={styles.logo} onClick={() => setIsOpen(false)}>
           <img 
-            src="/assets/img/infoco.svg" 
+            src="/assets/img/infoco-white.svg" 
             alt="Infoco" 
             className={styles.sidebarLogo} 
           />
+          <span className={styles.dashText}>Dash</span>
         </Link>
         
         <nav className={styles.nav}>
