@@ -18,7 +18,7 @@ export const TopBar = () => {
         <span className={styles.userName}>Admin</span>
         <div className={styles.avatar}>
           <img 
-            src="/assets/avatar.png" 
+            src="/assets/logo.svg" 
             alt="Admin" 
             className={styles.avatarImg} 
             onError={(e) => (e.currentTarget.style.display = 'none')}

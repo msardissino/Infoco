@@ -15,7 +15,7 @@ export const Header = () => {
         <Link href="/" className={styles.logo}>
           {/* Aquí cargamos el avatar si existe, si no, se muestra el texto */}
           <img 
-            src="/assets/avatar.png" 
+            src="/assets/logo.svg" 
             alt="Infoco" 
             className={styles.avatar} 
             onError={(e) => (e.currentTarget.style.display = 'none')} 

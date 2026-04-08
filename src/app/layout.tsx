@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   title: "Infoco - Centro de Día",
   description: "Revista digital institucional del Centro de Día Infoco.",
   icons: {
-    icon: "/assets/favicon.ico",
-    apple: "/assets/apple-touch-icon.png",
+    icon: "/assets/logo.svg",
+    apple: "/assets/logo.svg",
   },
 };
 
