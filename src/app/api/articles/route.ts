@@ -39,7 +39,6 @@ export async function POST(request: Request) {
         category,
         excerpt,
         content,
-        // @ts-ignore
         coverUrl,
       },
     });

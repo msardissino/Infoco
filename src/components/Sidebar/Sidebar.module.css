@@ -68,16 +68,9 @@
 }
 
 .sidebarLogo {
-  height: 32px;
+  height: 38px;
   width: auto;
   object-fit: contain;
-}
-
-.dashText {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-accent);
-  margin-left: 0.25rem;
 }
 
 .nav {
