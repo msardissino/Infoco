@@ -87,9 +87,9 @@ export default function EditionsPage() {
             )}
             {editions.map((edition) => (
               <tr key={edition.id}>
-                <td style={{ fontWeight: 500 }}>{edition.title}</td>
-                <td><Link style={{color: "var(--color-primary)", textDecoration: "underline"}} href={edition.pdfUrl} target="_blank">Ver Archivo</Link></td>
-                <td>
+                <td data-label="Título de Edición" style={{ fontWeight: 500 }}>{edition.title}</td>
+                <td data-label="Enlace Visor"><Link style={{color: "var(--color-primary)", textDecoration: "underline"}} href={edition.pdfUrl} target="_blank">Ver Archivo</Link></td>
+                <td data-label="Estado">
                   <button 
                     onClick={() => handleToggleStatus(edition)}
                     style={{ 
@@ -105,8 +105,8 @@ export default function EditionsPage() {
                     {edition.status}
                   </button>
                 </td>
-                <td>{new Date(edition.createdAt).toLocaleDateString()}</td>
-                <td>
+                <td data-label="Fecha">{new Date(edition.createdAt).toLocaleDateString()}</td>
+                <td data-label="Acciones">
                   <div className={styles.actions}>
                     <button className={styles.btnDelete} onClick={() => handleDelete(edition.id)}>Borrar</button>
                   </div>

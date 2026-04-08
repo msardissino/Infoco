@@ -11,6 +11,7 @@ export interface Article {
   excerpt: string;
   content: string;
   status: string;
+  coverUrl?: string | null;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -89,9 +90,9 @@ export default function ArticlesPage() {
             )}
             {articles.map((article) => (
               <tr key={article.id}>
-                <td style={{ fontWeight: 500 }}>{article.title}</td>
-                <td>{article.category}</td>
-                <td>
+                <td data-label="Título" style={{ fontWeight: 500 }}>{article.title}</td>
+                <td data-label="Categoría">{article.category}</td>
+                <td data-label="Estado">
                   <button 
                     onClick={() => handleToggleStatus(article)}
                     style={{ 
@@ -107,8 +108,8 @@ export default function ArticlesPage() {
                     {article.status}
                   </button>
                 </td>
-                <td>{new Date(article.createdAt).toLocaleDateString()}</td>
-                <td>
+                <td data-label="Fecha">{new Date(article.createdAt).toLocaleDateString()}</td>
+                <td data-label="Acciones">
                   <div className={styles.actions}>
                     {/* El editar se deja como UI placeholder por el momento */}
                     <Link href={`/dashboard/articulos/${article.id}/editar`} className={styles.btnEdit}>Editar</Link>

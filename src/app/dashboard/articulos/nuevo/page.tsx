@@ -14,9 +14,16 @@ export default function NewArticlePage() {
     excerpt: "",
     content: ""
   });
+  const [coverFile, setCoverFile] = useState<File | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setCoverFile(e.target.files[0]);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -24,20 +31,29 @@ export default function NewArticlePage() {
     setLoading(true);
 
     try {
+      const data = new FormData();
+      data.append("title", formData.title);
+      data.append("category", formData.category);
+      data.append("excerpt", formData.excerpt);
+      data.append("content", formData.content);
+      if (coverFile) {
+        data.append("cover", coverFile);
+      }
+
       const res = await fetch("/api/articles", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: data, // FormData handles Content-Type automatically
       });
 
       if (res.ok) {
         router.push("/dashboard/articulos");
       } else {
-        alert("Error al guardar el artículo");
+        const errorData = await res.json();
+        alert("Error al guardar el artículo: " + (errorData.details || errorData.error));
       }
     } catch (error) {
       console.error(error);
-      alert("Error al conectar con la base de datos");
+      alert("Error al conectar con el servidor");
     } finally {
       setLoading(false);
     }
@@ -78,6 +94,20 @@ export default function NewArticlePage() {
             <option value="Actividades">Actividades</option>
             <option value="Eventos">Eventos</option>
           </select>
+        </div>
+
+        <div className={styles.formGroup}>
+          <label className={styles.label} htmlFor="cover">Imagen de Portada (Opcional)</label>
+          <input 
+            className={styles.input} 
+            type="file" 
+            id="cover" 
+            accept="image/*"
+            onChange={handleFileChange}
+          />
+          <p style={{ fontSize: "0.8rem", color: "var(--color-text-muted)", marginTop: "0.25rem" }}>
+            Si no subes una imagen, se usará una genérica institucional.
+          </p>
         </div>
 
         <div className={styles.formGroup}>

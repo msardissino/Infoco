@@ -15,6 +15,7 @@ model Article {
   excerpt   String
   content   String
   status    String   @default("Borrador")
+  coverUrl  String?
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

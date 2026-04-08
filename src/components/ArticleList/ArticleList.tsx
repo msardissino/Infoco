@@ -52,8 +52,18 @@ export const ArticleList = () => {
             articles.map((article) => (
               <Link href={`/articulos/${article.id}`} key={article.id} style={{textDecoration: "none"}}>
                 <article className={styles.card}>
-                  <div className={styles.imagePlaceholder}>
-                    [Imagen de portada]
+                  <div className={styles.imageContainer}>
+                    {article.coverUrl ? (
+                      <img 
+                        src={article.coverUrl} 
+                        alt={article.title} 
+                        className={styles.cardImage} 
+                      />
+                    ) : (
+                      <div className={styles.imagePlaceholder}>
+                        <img src="/assets/img/infoco.svg" alt="Infoco" className={styles.placeholderIcon} />
+                      </div>
+                    )}
                   </div>
                   <div className={styles.cardContent}>
                     <span className={styles.badge}>{article.category}</span>
