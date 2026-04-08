@@ -11,10 +11,37 @@
   z-index: 100;
 }
 
+.logoContainer {
+  display: block;
+}
+
+.mobileLogo {
+  height: 28px;
+  width: auto;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .logoContainer {
+    display: none;
+  }
+}
+
 .heading {
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--color-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 1.25rem;
+    margin: 0;
+  }
 }
 
 .actions {
