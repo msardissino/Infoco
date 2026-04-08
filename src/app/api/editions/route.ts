@@ -47,8 +47,11 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json(newEdition, { status: 201 });
-  } catch (error) {
-    console.error(error);
-    return NextResponse.json({ error: "Hubo un error al procesar el archivo" }, { status: 500 });
+  } catch (error: any) {
+    console.error("Error detallado en POST /api/editions:", error);
+    return NextResponse.json({ 
+      error: "Hubo un error al procesar el archivo",
+      details: error.message || "Error desconocido"
+    }, { status: 500 });
   }
 }

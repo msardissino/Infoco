@@ -48,7 +48,8 @@ export default function NewEditionPage() {
       if (res.ok) {
         router.push("/dashboard/ediciones");
       } else {
-        alert("Error al guardar la revista");
+        const errorData = await res.json();
+        alert(`Error: ${errorData.error}\nDetalles: ${errorData.details || "Sin detalles adicionales"}`);
       }
     } catch (error) {
       console.error(error);
