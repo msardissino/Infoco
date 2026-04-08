@@ -13,14 +13,11 @@ export const Header = () => {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          {/* Aquí cargamos el avatar si existe, si no, se muestra el texto */}
           <img 
-            src="/assets/logo.svg" 
+            src="/assets/img/infoco.svg" 
             alt="Infoco" 
-            className={styles.avatar} 
-            onError={(e) => (e.currentTarget.style.display = 'none')} 
+            className={styles.fullLogo} 
           />
-          <span className={styles.brandText}>Infoco<span>.</span></span>
         </Link>
         
         <button className={styles.menuToggle} onClick={toggleMenu} aria-label="Abrir menú">

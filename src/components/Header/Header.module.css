@@ -23,21 +23,10 @@
   z-index: 101;
 }
 
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
-  object-fit: cover;
-}
-
-.brandText {
-  font-size: 1.25rem;
-  font-weight: 800;
-  color: var(--color-primary);
-}
-
-.brandText span {
-  color: var(--color-accent);
+.fullLogo {
+  height: 45px;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Mobile Nav - Hidden by default */

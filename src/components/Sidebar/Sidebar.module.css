@@ -67,13 +67,10 @@
   color: var(--color-accent);
 }
 
-.avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-sm);
+.sidebarLogo {
+  height: 40px;
+  width: auto;
   object-fit: contain;
-  background-color: var(--color-surface);
-  padding: 2px;
 }
 
 .nav {

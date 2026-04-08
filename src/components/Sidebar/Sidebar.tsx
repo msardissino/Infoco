@@ -34,12 +34,10 @@ export const Sidebar = () => {
       <aside className={`${styles.sidebar} ${isOpen ? styles.isOpen : ""}`}>
         <Link href="/" className={styles.logo} onClick={() => setIsOpen(false)}>
           <img 
-            src="/assets/logo.svg" 
+            src="/assets/img/infoco.svg" 
             alt="Infoco" 
-            className={styles.avatar} 
-            onError={(e) => (e.currentTarget.style.display = 'none')} 
+            className={styles.sidebarLogo} 
           />
-          <span>Infoco<span>Dash</span></span>
         </Link>
         
         <nav className={styles.nav}>
