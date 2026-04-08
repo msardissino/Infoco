@@ -1,7 +1,6 @@
 import { NextResponse } from "next/server";
+import { put } from "@vercel/blob";
 import { prisma } from "@/lib/prisma";
-import fs from "fs";
-import path from "path";
 
 export async function GET() {
   try {
@@ -25,19 +24,18 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Faltan datos obligatorios" }, { status: 400 });
     }
 
-    // Convertir el Blob en un Buffer intermedio (ArrayBuffer -> Buffer en Node)
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = Buffer.from(arrayBuffer);
+    // Subir el archivo directamente a Vercel Blob
+    const uniqueFileName = `ediciones/${Date.now()}_${Math.round(Math.random() * 1e9)}.pdf`;
+    
+    // El SDK de Vercel Blob se encarga de todo. 
+    // En producción usará el token de las variables de entorno de Vercel.
+    const blob = await put(uniqueFileName, file, { 
+      access: 'public',
+      addRandomSuffix: true // Vercel añade un sufijo para evitar colisiones
+    });
 
-    // Generar nombre de archivo único
-    const uniqueFileName = `${Date.now()}_${Math.round(Math.random() * 1e9)}.pdf`;
-    const publicPath = path.join(process.cwd(), "public", "ediciones", uniqueFileName);
-
-    // Escribir el archivo físicamente en public/ediciones/
-    fs.writeFileSync(publicPath, buffer);
-
-    // Path público para acceder vía URL en la web
-    const pdfUrl = `/ediciones/${uniqueFileName}`;
+    // Usamos la URL pública que nos devuelve Blob
+    const pdfUrl = blob.url;
 
     // Crear el registro en base de datos
     // @ts-ignore
